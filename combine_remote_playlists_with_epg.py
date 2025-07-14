@@ -5,14 +5,14 @@ import re
 # ===== CONFIGURATION =====
 # Add or remove playlist URLs here as needed
 PLAYLISTS = [
-    "https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/en/videoall.m3u",
+    "https://tinyurl.com/drewall8",
     "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/TheTVApp.m3u8",
     "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/Backup.m3u"
     # Add more playlists here in the format: "URL_TO_PLAYLIST"
 ]
 
 # EPG URL
-EPG_URL = "https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/en/videoall.xml"
+EPG_URL = "https://tvpass.org/epg.xml"
 
 # Output file
 OUTPUT_FILE = "combined_playlist.m3u"
@@ -38,26 +38,53 @@ def process_playlist(playlist_content, source_name, outfile):
     """Process and write playlist content to output file"""
     if not playlist_content:
         return
-        
-    # Add source group title
-    outfile.write(f'# 📺 Source: {source_name}\n')
-    outfile.write(f'#EXTGRP:{source_name}\n')
     
-    for line in playlist_content:
+    # Create a dictionary to store groups and their channels
+    groups = {}
+    current_group = "Ungrouped"
+    
+    # First pass: organize channels by their groups
+    i = 0
+    while i < len(playlist_content):
+        line = playlist_content[i]
+        
+        # Check if this is a group title line
+        if line.startswith("#EXTGRP:"):
+            current_group = line.split(':', 1)[1].strip()
+            i += 1
+            continue
+            
+        # Check if this is a channel info line
         if line.startswith("#EXTINF"):
-            # Add or update group-title
-            if 'group-title=' not in line:
-                line = line.replace("#EXTINF", f"#EXTINF group-title=\"{source_name}\"")
-            elif 'group-title=""' in line:
-                line = line.replace('group-title=""', f'group-title="{source_name}"')
-            else:
-                # Preserve existing group-title but add source as a secondary group
-                line = line.replace('group-title="', f'group-title="{source_name}, ')
+            # Extract group-title if it exists
+            group_match = re.search(r'group-title="([^"]*)"', line)
+            if group_match:
+                current_group = group_match.group(1).split(',')[0].strip() or "Ungrouped"
+            
+            # Get the channel URL (next line)
+            if i + 1 < len(playlist_content) and not playlist_content[i+1].startswith('#'):
+                channel_url = playlist_content[i+1]
+                if current_group not in groups:
+                    groups[current_group] = []
+                groups[current_group].append((line, channel_url))
+                i += 2
+                continue
         
-        if not line.startswith("#EXTM3U"):  # Skip the initial header
-            outfile.write(line + "\n")
+        i += 1
     
-    outfile.write("\n")  # Space between sources
+    # Write the playlist header
+    outfile.write(f'#PLAYLIST:{source_name}\n')
+    outfile.write(f'#EXTGRP:{source_name}\n\n')
+    
+    # Write groups and their channels
+    for group, channels in groups.items():
+        outfile.write(f'#GROUP:{group}\n')
+        for channel_info, channel_url in channels:
+            outfile.write(f'{channel_info}\n')
+            outfile.write(f'{channel_url}\n')
+        outfile.write('\n')
+    
+    outfile.write('\n' + '='*50 + '\n\n')  # Separator between playlists
 
 def main():
     """Main function to combine playlists"""
@@ -65,7 +92,7 @@ def main():
     
     with open(OUTPUT_FILE, "w", encoding="utf-8") as outfile:
         # Write header with EPG URL and timestamp
-        outfile.write(f'#EXTM3U x-tvg-url="{EPG_URL}"\n\n')
+        outfile.write(f'#EXTM3U x-tvg-url="{EPG_URL}"\n')
         outfile.write(f'# Generated on {datetime.utcnow().isoformat()} UTC\n\n')
         
         # Process each playlist
@@ -75,7 +102,7 @@ def main():
             if content:
                 source_name = get_playlist_name(url)
                 process_playlist(content, source_name, outfile)
-                print(f"✅ Added: {source_name}")
+                print(f"✅ Added: {source_name} with groups")
     
     print(f"\n🎉 Success! Combined playlist saved as '{OUTPUT_FILE}'")
     print(f"📺 EPG URL: {EPG_URL}")
