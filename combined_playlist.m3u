@@ -1,5 +1,5 @@
-#EXTM3U x-tvg-url="https://tvpass.org/epg.xml"
-# Generated on 2025-07-14T23:53:02.855717 UTC
+#EXTM3U x-tvg-url="https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/en/videoall.xml"
+# Generated on 2025-07-14T23:58:36.829806 UTC
 
 #PLAYLIST:videoall
 #EXTGRP:videoall
