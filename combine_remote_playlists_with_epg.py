@@ -12,7 +12,7 @@ PLAYLISTS = [
 ]
 
 # EPG URL
-EPG_URL = "https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/en/videoall.xml"
+EPG_URL = "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/epgs/Backup-epg.xml.gz"
 
 # Output file
 OUTPUT_FILE = "combined_playlist.m3u"
