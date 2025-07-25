@@ -8,10 +8,8 @@ Short Url: [https://cutt.ly/2rn48Pvr](https://cutt.ly/2rn48Pvr) EPGS: [tvpass.or
 
 Links used in the script:
 
-    https://tinyurl.com/drewall8
-    
-    https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/TheTVApp.m3u8
-    
-    https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/Backup.m3u
+    "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/Backup.m3u",
+    "https://raw.githubusercontent.com/BuddyChewChew/My-Streams/refs/heads/main/TheTVApp.m3u8",
+    "https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/en/videoall.m3u
 
 👉  Check out my repo [homepage](https://github.com/BuddyChewChew/My-Streams) for more goodies.
