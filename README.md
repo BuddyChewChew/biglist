@@ -3,7 +3,14 @@
 UPDATE: 7/25/25
 
 ▶️ One big playlist unsorted
-Short Url: [https://cutt.ly/2rn48Pvr](https://cutt.ly/2rn48Pvr) EPGS: [tvpass.org/epg.xml](https://tvpass.org/epg.xml) , [epg_ripper_ALL_SOURCES1.xml.gz](https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz)
+M3U: 
+[combined_playlist.m3u](https://cutt.ly/2rn48Pvr](https://raw.githubusercontent.com/BuddyChewChew/biglist/refs/heads/main/combined_playlist.m3u) 
+
+EPGS: 
+
+[tvpass.org/epg.xml](https://tvpass.org/epg.xml)
+
+[epg_ripper_ALL_SOURCES1.xml.gz](https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz)
 
 Links used in the script:
 
