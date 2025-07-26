@@ -4,15 +4,9 @@ UPDATE: 7/25/25
 
 ▶️ One big playlist unsorted.
 
-M3U: 
+M3U: [combined_playlist.m3u](https://raw.githubusercontent.com/BuddyChewChew/biglist/refs/heads/main/combined_playlist.m3u) 
 
-[combined_playlist.m3u](https://raw.githubusercontent.com/BuddyChewChew/biglist/refs/heads/main/combined_playlist.m3u) 
-
-EPGS: 
-
-[tvpass.org/epg.xml](https://tvpass.org/epg.xml)
-
-[epg_ripper_ALL_SOURCES1.xml.gz](https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz)
+EPGS: [tvpass.org/epg.xml](https://tvpass.org/epg.xml), [epg_ripper_ALL_SOURCES1.xml.gz](https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz)
 
 Links used in the script:
 
