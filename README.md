@@ -5,7 +5,7 @@ UPDATE: 7/25/25
 ▶️ One big playlist unsorted.
 
 M3U: 
-[combined_playlist.m3u](https://cutt.ly/2rn48Pvr](https://raw.githubusercontent.com/BuddyChewChew/biglist/refs/heads/main/combined_playlist.m3u) 
+[combined_playlist.m3u](https://raw.githubusercontent.com/BuddyChewChew/biglist/refs/heads/main/combined_playlist.m3u) 
 
 EPGS: 
 
