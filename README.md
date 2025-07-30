@@ -6,7 +6,7 @@ UPDATE: 7/25/25
 
 M3U: [combined_playlist.m3u](https://raw.githubusercontent.com/BuddyChewChew/biglist/refs/heads/main/combined_playlist.m3u) 
 
-EPGS: [tvpass.org/epg.xml](https://tvpass.org/epg.xml) , [videoall.xml)](https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/en/videoall.xml)
+EPGS: [tvpass.org/epg.xml](https://tvpass.org/epg.xml) , [videoall.xml](https://raw.githubusercontent.com/BuddyChewChew/buddylive/refs/heads/main/en/videoall.xml)
 
 Links used in the script:
 
